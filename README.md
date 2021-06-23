@@ -11,10 +11,10 @@ How to use:
 7) Refresh to ensure accurate mod states.
 
 Right clicking a mod gives some options:
-*Add mod
-*Enable
-*Disable
-*Refresh (current mod list)
-*Apply changes (apply and deploy mods)
-*View folder (open mod folder to edit stuff)
-*Delete (to recycle bin)
+1) Add mod
+2) Enable
+3) Disable
+4) Refresh (current mod list)
+5) Apply changes (apply and deploy mods)
+6) View folder (open mod folder to edit stuff)
+7) Delete (to recycle bin)
