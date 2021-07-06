@@ -3,6 +3,8 @@ Imports System.IO
 Imports System.IO.Compression
 Imports Newtonsoft.Json.Linq
 Imports System.Threading
+Imports System.Net
+Imports System.Diagnostics
 
 Public Class Form1
     Dim zipFiles As New List(Of String)
@@ -10,6 +12,16 @@ Public Class Form1
     Dim modsInstalled As New List(Of String)
     Dim modsDisabled As New List(Of String)
     Dim modsUninstalled As New List(Of String)
+
+    Sub checkVersion()
+        Using client As New WebClient
+            Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
+            If Not value = Application.ProductVersion Then
+                CheckUpdate.Show()
+            End If
+        End Using
+
+    End Sub
     Sub applyChanges()
         Dim driveLetter = Split(Dialog2.TextBox1.Text, "\")
         If My.Computer.FileSystem.DirectoryExists(Dialog2.TextBox1.Text) Then
@@ -31,45 +43,21 @@ Public Class Form1
                         modsDisabled.Add(modName)
                     Else
                         My.Computer.FileSystem.DeleteDirectory(Dialog2.TextBox1.Text + "\user\mods\" + modName, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-                        'Dim confirmDelete As Integer
-                        '
-                        'confirmDelete = MsgBox("Are you sure you want to disable " + """" + modName + """" + " mod?", vbQuestion + vbYesNo + vbDefaultButton2, "Confirm Disable")
-                        'If confirmDelete = vbYes Then
-                        '
                         modsUninstalled.Add(modName)
-                        'End If
                     End If
                 End If
-                'MsgBox(CheckedListBox1.Items.Item(i) + CheckedListBox1.GetItemCheckState(i).ToString())
             Next
             If modsInstalled.Count > 0 Then
                 For Each item In modsInstalled
                     Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Mod enabled: " + item)
                 Next
-                'Dim listofMods As String = String.Join(vbLf, modsInstalled)
-
-                'MsgBox("The following mods have been installed: " + vbLf + vbLf + listofMods)
             End If
             If modsEnabled.Count > 0 Then
-                '    Dim listofMods As String = String.Join(vbLf, modsEnabled)
-                '    MsgBox("The following mods are already enabled: " + vbLf + vbLf + listofMods)
-                'For Each item In modsEnabled
-                '    Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Mod already enabled : " + item)
-                'Next
             End If
             If modsUninstalled.Count > 0 Then
-                '    Dim listofMods As String = String.Join(vbLf, modsUninstalled)
-                '    MsgBox("The following mods have been disabled: " + vbLf + vbLf + listofMods)
                 For Each item In modsUninstalled
                     Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Mod disabled : " + item)
                 Next
-            End If
-            If modsDisabled.Count > 0 Then
-                '    Dim listofMods As String = String.Join(vbLf, modsDisabled)
-                '    MsgBox("The following mods are already disabled: " + vbLf + vbLf + listofMods)
-                'For Each item In modsDisabled
-                '    Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Mod already disabled : " + item)
-                'Next
             End If
             modsEnabled.Clear()
                 modsInstalled.Clear()
@@ -104,69 +92,20 @@ Public Class Form1
                 Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Mod disabled : " + CheckedListBox1.SelectedItem.ToString)
             End If
         End If
-        'My.Computer.FileSystem.DeleteDirectory(Dialog2.TextBox1.Text + "\user\mods\" + CheckedListBox1.SelectedItem.ToString, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
     End Sub
     Sub enableMod()
-        'button to mass enable mods; disabled for now.
         Dim driveLetter = Split(Dialog2.TextBox1.Text, "\")
 
         For i As Integer = 0 To CheckedListBox1.Items.Count - 1
             CheckedListBox1.SetItemChecked(i, True)
         Next
-        'If My.Computer.FileSystem.DirectoryExists(Dialog2.TextBox1.Text) Then
-        '    For Each item As String In CheckedListBox1.CheckedItems
-        '        Dim installTo = """" + Dialog2.TextBox1.Text + "\" + item + """"
-        '        Dim installFrom = """" + Dialog2.TextBox2.Text + "\" + item + """"
-        '        If My.Computer.FileSystem.DirectoryExists(Dialog2.TextBox1.Text + "\" + item) Then
-        '            modsEnabled.Add(item)
-        '        Else
-        '            Process.Start("CMD", "/c " + driveLetter(0) + "& mklink /J " + installTo + " " + installFrom)
-        '            modsInstalled.Add(item)
-        '        End If
-        '    Next
-        '    If modsInstalled.Count > 0 Then
-        '        Dim listofMods As String = String.Join(vbLf, modsInstalled)
-        '        MsgBox("The following mods have been installed: " + vbLf + vbLf + listofMods)
-        '    End If
-        '    If modsEnabled.Count > 0 Then
-        '        Dim listofMods As String = String.Join(vbLf, modsEnabled)
-        '        MsgBox("The following mods are already enabled: " + vbLf + vbLf + listofMods)
-        '    End If
-        'Else
-        '    MsgBox("Saved mod folder does not exist! Please set it again.")
-        '    My.Settings.modFolder = ""
-        '    My.Settings.Save()
-        'End If
     End Sub
 
     Sub disableMod()
-        'button to mass dsiable mods; disabled for now.
         Dim driveLetter = Split(Dialog2.TextBox1.Text, "\")
         For i As Integer = 0 To CheckedListBox1.Items.Count - 1
             CheckedListBox1.SetItemChecked(i, False)
         Next
-        'For Each item As String In CheckedListBox1.CheckedItems
-        '    If Not My.Computer.FileSystem.DirectoryExists(Dialog2.TextBox1.Text + "\" + item) Then
-        '        modsDisabled.Add(item)
-        '    Else
-        '        Dim confirmDelete As Integer
-        '
-        '        confirmDelete = MsgBox("Are you sure you want to disable " + """" + item + """" + " mod?", vbQuestion + vbYesNo + vbDefaultButton2, "Confirm Disable")
-        '        If confirmDelete = vbYes Then
-        '            My.Computer.FileSystem.DeleteDirectory(Dialog2.TextBox1.Text + "\" + item, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
-        '            modsUninstalled.Add(item)
-        '        End If
-        '    End If
-        'Next
-        'If modsUninstalled.Count > 0 Then
-        '    Dim listofMods As String = String.Join(vbLf, modsUninstalled)
-        '    MsgBox("The following mods have been disabled: " + vbLf + vbLf + listofMods)
-        'End If
-        'If modsDisabled.Count > 0 Then
-        '    Dim listofMods As String = String.Join(vbLf, modsDisabled)
-        '    MsgBox("The following mods are already disabled: " + vbLf + vbLf + listofMods)
-        'End If
-
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         enableMod()
@@ -235,9 +174,9 @@ Public Class Form1
         End If
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'My.Settings.Reset()
         ToolStripStatusLabel1.Text = ""
         loadSettings()
+        checkVersion()
     End Sub
 
     Private Sub OpenModFolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenModFolderToolStripMenuItem.Click
@@ -261,20 +200,6 @@ Public Class Form1
         ListBox1.Items.Add("Author: " + read.Item("author").ToString)
         ListBox1.Items.Add("Version: " + read.Item("version").ToString)
         ListBox1.Items.Add("License: " + read.Item("license").ToString)
-    End Sub
-
-    Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
-
-        'If CheckedListBox1.GetItemCheckState(CheckedListBox1.SelectedIndex) = False Then
-        '    enableModTest()
-        'Else
-        '    disableModTest()
-        'End If
-
-    End Sub
-
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub SPTAKIHomeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SPTAKIHomeToolStripMenuItem.Click
@@ -389,10 +314,6 @@ Public Class Form1
         ToolStripProgressBar1.Value = e.ProgressPercentage
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub DeleteCacheToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteCacheToolStripMenuItem.Click
         Dim confirmDelete As Integer
         Dim tempLoc As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\Temp\Battlestate Games"
@@ -423,10 +344,6 @@ Public Class Form1
 
     Private Sub DsiableAllModsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DsiableAllModsToolStripMenuItem.Click
         disableMod()
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs)
@@ -470,5 +387,17 @@ Public Class Form1
 
     Private Sub ApplyChangesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ApplyChangesToolStripMenuItem1.Click
         applyChanges()
+    End Sub
+
+    Private Sub CheckForUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
+
+        Using client As New WebClient
+            Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
+            If Not value = Application.ProductVersion Then
+                CheckUpdate.Show()
+            Else
+                MsgBox("You already have the latest version: " + value)
+            End If
+        End Using
     End Sub
 End Class
