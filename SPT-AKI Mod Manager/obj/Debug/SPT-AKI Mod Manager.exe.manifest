@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="SPT-AKI Mod Manager.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="SPT-AKI Mod Manager.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SPT-AKI Mod Manager" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SPT-AKI Mod Manager" version="1.0.0.2" publicKeyToken="7172A8EDDF844F99" language="neutral" processorArchitecture="msil" />
     <commandLine file="SPT-AKI Mod Manager.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SPT-AKI Mod Manager.exe" size="568288">
-      <assemblyIdentity name="SPT-AKI Mod Manager" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SPT-AKI Mod Manager.exe" size="561632">
+      <assemblyIdentity name="SPT-AKI Mod Manager" version="1.0.0.2" publicKeyToken="7172A8EDDF844F99" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1xvz+6s6gwllneDn0f8K27+wXmWqh4b3WY1yCm4Ov/c=</dsig:DigestValue>
+        <dsig:DigestValue>3qY/pTvCx3xKTV8AB8PRC5pK8ZwcxYFHt93rDygP5vA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

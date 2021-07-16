@@ -19,17 +19,17 @@ Public Class Form1
     Dim lastProfileName As String = ""
     Public latestVersion As String = ""
 
-    Sub checkVersion()
-        Using client As New WebClient
-            Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
-            If Not value = Application.ProductVersion Then
-                latestVersion = value
-                CheckUpdate.Show()
-
-            End If
-        End Using
-
-    End Sub
+    'Sub checkVersion()
+    '    Using client As New WebClient
+    '        Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
+    '        If Not value = Application.ProductVersion Then
+    '            latestVersion = value
+    '            CheckUpdate.Show()
+    '
+    '        End If
+    '    End Using
+    '
+    'End Sub
     Sub applyChanges()
         Dim driveLetter = Split(Dialog2.TextBox1.Text, "\")
         If My.Computer.FileSystem.DirectoryExists(Dialog2.TextBox1.Text) Then
@@ -74,7 +74,7 @@ Public Class Form1
             Else
                 MsgBox("Saved mod folder does not exist! Please set it again.")
             gameFolderPath = ""
-            My.Settings.Save()
+            'My.Settings.Save()
         End If
     End Sub
     Sub enableModTest()
@@ -138,7 +138,7 @@ Public Class Form1
             Else
                 MsgBox("Mod repository directory does not exist! Please set it again File > Settings.")
                 modFolderPath = ""
-                My.Settings.Save()
+                'My.Settings.Save()
             End If
             For Each item As String In My.Computer.FileSystem.GetDirectories(Dialog2.TextBox1.Text + "\user\mods")
                 Dim modName As String = item.Substring(item.LastIndexOf("\") + 1)
@@ -196,7 +196,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ToolStripStatusLabel1.Text = ""
         loadPaths()
-        checkVersion()
+        'checkVersion()
         loadProfiles()
     End Sub
 
@@ -224,13 +224,13 @@ Public Class Form1
 
     End Sub
 
-    Private Sub SPTAKIHomeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SPTAKIHomeToolStripMenuItem.Click
-        Process.Start("https://www.sp-tarkov.com/")
-    End Sub
-
-    Private Sub ModsPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModsPageToolStripMenuItem.Click
-        Process.Start("https://mods.sp-tarkov.com/files/")
-    End Sub
+    'Private Sub SPTAKIHomeToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '    Process.Start("https://www.sp-tarkov.com/")
+    'End Sub
+    '
+    'Private Sub ModsPageToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '    Process.Start("https://mods.sp-tarkov.com/files/")
+    'End Sub
 
     Private Sub GameFolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GameFolderToolStripMenuItem.Click
         Process.Start(Dialog2.TextBox1.Text)
@@ -248,7 +248,7 @@ Public Class Form1
         Me.Close()
     End Sub
 
-    Private Sub ReadmeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReadmeToolStripMenuItem.Click
+    Private Sub ReadmeToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dialog1.Show()
     End Sub
 
@@ -397,7 +397,7 @@ Public Class Form1
         addMod()
     End Sub
 
-    Private Sub LogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogsToolStripMenuItem.Click
+    Private Sub LogsToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dialog3.ShowDialog()
     End Sub
 
@@ -413,17 +413,17 @@ Public Class Form1
         applyChanges()
     End Sub
 
-    Private Sub CheckForUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
+    Private Sub CheckForUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
-        Using client As New WebClient
-            Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
-            If Not value = Application.ProductVersion Then
-                CheckUpdate.Show()
-                latestVersion = value
-            Else
-                MsgBox("You already have the latest version: " + value)
-            End If
-        End Using
+        'Using client As New WebClient
+        '    Dim value As String = client.DownloadString("https://pastebin.com/raw/BCT24tkg")
+        '    If Not value = Application.ProductVersion Then
+        '        CheckUpdate.Show()
+        '        latestVersion = value
+        '    Else
+        '        MsgBox("You already have the latest version: " + value)
+        '    End If
+        'End Using
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
@@ -511,28 +511,25 @@ Public Class Form1
         Process.Start(My.Computer.FileSystem.CurrentDirectory + "\profiles")
     End Sub
 
-    Private Sub DeleteCacheToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DeleteCacheToolStripMenuItem1.Click
+    Private Sub DeleteCacheToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         deleteCache()
     End Sub
-    Sub deleteInis()
-        Dim confirmDelete As Integer
-        Dim tempLoc As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Escape from Tarkov"
-
-        If My.Computer.FileSystem.DirectoryExists(tempLoc) Then
-            confirmDelete = MsgBox("Are you sure you want to delete your EFT inis in My Documents? This sometimes can help when game isn't loading.", vbQuestion + vbYesNo + vbDefaultButton2, "Confirm Delete")
-            If confirmDelete = vbYes Then
-                My.Computer.FileSystem.DeleteFile(tempLoc + "\local.ini", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
-                My.Computer.FileSystem.DeleteFile(tempLoc + "\shared.ini", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
-                MsgBox("EFT INIs deleted successfully!")
-                Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Cache deleted.")
-            End If
-        Else
-            MsgBox("Directory does not exist!")
-        End If
-    End Sub
-    Private Sub DeleteDocumentsINIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteDocumentsINIToolStripMenuItem.Click
-        deleteInis()
-    End Sub
+    'Sub deleteInis()
+    '    Dim confirmDelete As Integer
+    '    Dim tempLoc As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Escape from Tarkov"
+    '
+    '    If My.Computer.FileSystem.DirectoryExists(tempLoc) Then
+    '        confirmDelete = MsgBox("Are you sure you want to delete your EFT inis in My Documents? This sometimes can help when game isn't loading.", vbQuestion + vbYesNo + vbDefaultButton2, "Confirm Delete")
+    '        If confirmDelete = vbYes Then
+    '            My.Computer.FileSystem.DeleteFile(tempLoc + "\local.ini", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
+    '            My.Computer.FileSystem.DeleteFile(tempLoc + "\shared.ini", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
+    '            MsgBox("EFT INIs deleted successfully!")
+    '            Dialog3.ListBox1.Items.Add(Date.Now.ToShortDateString + " " + Date.Now.ToLongTimeString + " | Cache deleted.")
+    '        End If
+    '    Else
+    '        MsgBox("Directory does not exist!")
+    '    End If
+    'End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
@@ -566,7 +563,11 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub HomepageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HomepageToolStripMenuItem.Click
-        Process.Start("https://mods.sp-tarkov.com/files/file/221-spt-aki-mod-manager/")
+    'Private Sub HomepageToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '    Process.Start("https://mods.sp-tarkov.com/files/file/221-spt-aki-mod-manager/")
+    'End Sub
+
+    Private Sub LinksToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

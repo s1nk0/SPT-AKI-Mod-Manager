@@ -21,11 +21,4 @@ Public Class Dialog1
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
 
     End Sub
-
-    Private Sub Dialog1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Using client As New WebClient
-            Dim value As String = client.DownloadString("https://pastebin.com/raw/Xi2ZifqD")
-            TextBox1.Text = value
-        End Using
-    End Sub
 End Class

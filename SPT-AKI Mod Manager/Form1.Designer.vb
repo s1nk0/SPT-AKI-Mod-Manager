@@ -53,18 +53,6 @@ Partial Class Form1
         Me.SelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnableAllModsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DsiableAllModsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LinksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SPTAKIHomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModsPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HomepageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TroubleshootToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteCacheToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteDocumentsINIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReadmeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SearchModnameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -164,7 +152,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.DirectoriesToolStripMenuItem, Me.SelectToolStripMenuItem, Me.LinksToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.DirectoriesToolStripMenuItem, Me.SelectToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(463, 24)
@@ -182,7 +170,7 @@ Partial Class Form1
         '
         Me.LaunchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ServerToolStripMenuItem, Me.LauncherToolStripMenuItem})
         Me.LaunchToolStripMenuItem.Name = "LaunchToolStripMenuItem"
-        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LaunchToolStripMenuItem.Text = "Launch"
         '
         'ServerToolStripMenuItem
@@ -201,7 +189,7 @@ Partial Class Form1
         '
         Me.ModsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.DeleteToolStripMenuItem1, Me.ApplyChangesToolStripMenuItem1})
         Me.ModsToolStripMenuItem.Name = "ModsToolStripMenuItem"
-        Me.ModsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.ModsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ModsToolStripMenuItem.Text = "Mods"
         '
         'AddToolStripMenuItem
@@ -225,13 +213,13 @@ Partial Class Form1
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'DirectoriesToolStripMenuItem
@@ -244,25 +232,25 @@ Partial Class Form1
         'OpenModFolderToolStripMenuItem
         '
         Me.OpenModFolderToolStripMenuItem.Name = "OpenModFolderToolStripMenuItem"
-        Me.OpenModFolderToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.OpenModFolderToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OpenModFolderToolStripMenuItem.Text = "Deployed Mods"
         '
         'OpenRepositoryFolderToolStripMenuItem
         '
         Me.OpenRepositoryFolderToolStripMenuItem.Name = "OpenRepositoryFolderToolStripMenuItem"
-        Me.OpenRepositoryFolderToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.OpenRepositoryFolderToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OpenRepositoryFolderToolStripMenuItem.Text = "Downloaded Mods"
         '
         'GameFolderToolStripMenuItem
         '
         Me.GameFolderToolStripMenuItem.Name = "GameFolderToolStripMenuItem"
-        Me.GameFolderToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.GameFolderToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.GameFolderToolStripMenuItem.Text = "Game Directory"
         '
         'ProfilesToolStripMenuItem
         '
         Me.ProfilesToolStripMenuItem.Name = "ProfilesToolStripMenuItem"
-        Me.ProfilesToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ProfilesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProfilesToolStripMenuItem.Text = "Profiles"
         '
         'SelectToolStripMenuItem
@@ -275,90 +263,14 @@ Partial Class Form1
         'EnableAllModsToolStripMenuItem
         '
         Me.EnableAllModsToolStripMenuItem.Name = "EnableAllModsToolStripMenuItem"
-        Me.EnableAllModsToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.EnableAllModsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EnableAllModsToolStripMenuItem.Text = "Select all mods"
         '
         'DsiableAllModsToolStripMenuItem
         '
         Me.DsiableAllModsToolStripMenuItem.Name = "DsiableAllModsToolStripMenuItem"
-        Me.DsiableAllModsToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.DsiableAllModsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DsiableAllModsToolStripMenuItem.Text = "Deselect all mods"
-        '
-        'LinksToolStripMenuItem
-        '
-        Me.LinksToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SPTAKIHomeToolStripMenuItem, Me.ModsPageToolStripMenuItem, Me.HomepageToolStripMenuItem})
-        Me.LinksToolStripMenuItem.Name = "LinksToolStripMenuItem"
-        Me.LinksToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.LinksToolStripMenuItem.Text = "Links"
-        '
-        'SPTAKIHomeToolStripMenuItem
-        '
-        Me.SPTAKIHomeToolStripMenuItem.Name = "SPTAKIHomeToolStripMenuItem"
-        Me.SPTAKIHomeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SPTAKIHomeToolStripMenuItem.Text = "SPT-AKI Home"
-        '
-        'ModsPageToolStripMenuItem
-        '
-        Me.ModsPageToolStripMenuItem.Name = "ModsPageToolStripMenuItem"
-        Me.ModsPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ModsPageToolStripMenuItem.Text = "Mods Page"
-        '
-        'HomepageToolStripMenuItem
-        '
-        Me.HomepageToolStripMenuItem.Name = "HomepageToolStripMenuItem"
-        Me.HomepageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HomepageToolStripMenuItem.Text = "Homepage"
-        '
-        'ToolsToolStripMenuItem
-        '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TroubleshootToolStripMenuItem, Me.LogsToolStripMenuItem})
-        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.ToolsToolStripMenuItem.Text = "Tools"
-        '
-        'TroubleshootToolStripMenuItem
-        '
-        Me.TroubleshootToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteCacheToolStripMenuItem1, Me.DeleteDocumentsINIToolStripMenuItem})
-        Me.TroubleshootToolStripMenuItem.Name = "TroubleshootToolStripMenuItem"
-        Me.TroubleshootToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.TroubleshootToolStripMenuItem.Text = "Troubleshoot"
-        '
-        'DeleteCacheToolStripMenuItem1
-        '
-        Me.DeleteCacheToolStripMenuItem1.Name = "DeleteCacheToolStripMenuItem1"
-        Me.DeleteCacheToolStripMenuItem1.Size = New System.Drawing.Size(235, 22)
-        Me.DeleteCacheToolStripMenuItem1.Text = "Delete Cache"
-        '
-        'DeleteDocumentsINIToolStripMenuItem
-        '
-        Me.DeleteDocumentsINIToolStripMenuItem.Name = "DeleteDocumentsINIToolStripMenuItem"
-        Me.DeleteDocumentsINIToolStripMenuItem.Size = New System.Drawing.Size(235, 22)
-        Me.DeleteDocumentsINIToolStripMenuItem.Text = "Delete EFT local and shared INI"
-        '
-        'LogsToolStripMenuItem
-        '
-        Me.LogsToolStripMenuItem.Name = "LogsToolStripMenuItem"
-        Me.LogsToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.LogsToolStripMenuItem.Text = "Logs"
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReadmeToolStripMenuItem, Me.CheckForUpdatesToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'ReadmeToolStripMenuItem
-        '
-        Me.ReadmeToolStripMenuItem.Name = "ReadmeToolStripMenuItem"
-        Me.ReadmeToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-        Me.ReadmeToolStripMenuItem.Text = "Readme"
-        '
-        'CheckForUpdatesToolStripMenuItem
-        '
-        Me.CheckForUpdatesToolStripMenuItem.Name = "CheckForUpdatesToolStripMenuItem"
-        Me.CheckForUpdatesToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-        Me.CheckForUpdatesToolStripMenuItem.Text = "Check for Updates"
         '
         'ListBox1
         '
@@ -505,12 +417,7 @@ Partial Class Form1
     Friend WithEvents OpenModFolderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenRepositoryFolderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents LinksToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SPTAKIHomeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ModsPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GameFolderToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ReadmeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button6 As Button
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LaunchToolStripMenuItem As ToolStripMenuItem
@@ -526,30 +433,23 @@ Partial Class Form1
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents ToolStripProgressBar1 As ToolStripProgressBar
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SelectToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnableAllModsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DsiableAllModsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ApplyChangesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddModToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents LogsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ApplyChangesToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents CheckForUpdatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents ProfilesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TroubleshootToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DeleteCacheToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents DeleteDocumentsINIToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
     Friend WithEvents SearchModnameToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SearchArtistToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents HomepageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
 End Class
