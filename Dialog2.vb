@@ -5,6 +5,7 @@ Public Class Dialog2
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         My.Computer.FileSystem.WriteAllText(My.Computer.FileSystem.CurrentDirectory + "\paths\gameFolder.txt", TextBox1.Text, False)
+        My.Computer.FileSystem.WriteAllText(My.Computer.FileSystem.CurrentDirectory + "\paths\modsFolder.txt", TextBox2.Text, False)
         Me.Close()
     End Sub
 
